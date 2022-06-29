@@ -39,6 +39,7 @@ namespace gra_wytrych_GUI
             this.LblLiczbaWytrychowInfo = new System.Windows.Forms.Label();
             this.LblLiczbaWytrychow = new System.Windows.Forms.Label();
             this.LblOutput = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnNowaGra
@@ -133,11 +134,22 @@ namespace gra_wytrych_GUI
             this.LblOutput.TabIndex = 9;
             this.LblOutput.Text = "Output";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(378, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.LblOutput);
             this.Controls.Add(this.LblLiczbaWytrychow);
             this.Controls.Add(this.LblLiczbaWytrychowInfo);
@@ -150,7 +162,6 @@ namespace gra_wytrych_GUI
             this.Controls.Add(this.BtnNowaGra);
             this.Name = "Form1";
             this.Text = " ";
-            //this.Load += new System.EventHandler(this.Form1_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +179,7 @@ namespace gra_wytrych_GUI
         private System.Windows.Forms.Label LblLiczbaWytrychowInfo;
         private System.Windows.Forms.Label LblLiczbaWytrychow;
         private System.Windows.Forms.Label LblOutput;
+        private System.Windows.Forms.Button button1;
     }
 }
 

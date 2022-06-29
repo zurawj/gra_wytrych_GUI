@@ -15,13 +15,13 @@ namespace gra_wytrych_GUI
         public char[] SkrzyniaArray { get; set; }
         private Random Rnd = new Random();
 
-        public Skrzynia(int dlugosc)
+        public Skrzynia()
         {
-            this.SkrzyniaArray = new char[dlugosc];
+            //this.SkrzyniaArray = new char[dlugosc];
         }
         public void GenerowanieSekwencji(int dlugosc)
         {
-            
+            this.SkrzyniaArray = new char[dlugosc];
             for (int i = 0; i < dlugosc; i++)
             {
                 if (Rnd.Next(0, 2) > 0)

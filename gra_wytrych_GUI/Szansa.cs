@@ -17,13 +17,15 @@ namespace gra_wytrych_GUI
         public static int TempIloscWytrychow; //zabezpieczenie przed naliczaniem ujemnych wytrychów
         public static int Chance { get; set; }
         public static int DlugoscSekwencji = 4; // domyślny poziom łatwy
+        public static int IloscPunktow;
+        public static int IloscSkrzyni;
 
         public static void SetSzansaLatwy()
         {
             Chance = Latwy;
             IloscWytrychow = 20;
             TempIloscWytrychow = IloscWytrychow;
-            DlugoscSekwencji = 8;
+            DlugoscSekwencji = 4;
             min = 5;  //zakres ilości punktów jakie zostaną przydzielone po otwarciu skrzyni
             max = 20;
         }
