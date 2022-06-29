@@ -49,7 +49,6 @@ namespace gra_wytrych_GUI
             this.BtnNowaGra.TabIndex = 0;
             this.BtnNowaGra.Text = "Nowa Gra";
             this.BtnNowaGra.UseVisualStyleBackColor = true;
-            this.BtnNowaGra.Click += new System.EventHandler(this.BtnNowaGra_Click);
             // 
             // BtnLewo
             // 
@@ -150,6 +149,7 @@ namespace gra_wytrych_GUI
             this.Controls.Add(this.BtnNowaGra);
             this.Name = "Form1";
             this.Text = " ";
+            //this.Load += new System.EventHandler(this.Form1_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
