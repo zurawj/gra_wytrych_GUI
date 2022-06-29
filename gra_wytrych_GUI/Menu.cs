@@ -30,51 +30,7 @@ namespace gra_wytrych_GUI
             DlugoscSekwencji = 4;
             Szansa = 20;
         }
-        public void WyswietlMenu()
-        {
-            Console.WriteLine("1. Nowa gra");
-            Console.WriteLine("2. Opcje");
-            Console.WriteLine("3. Instrukcja");
-            Console.WriteLine("0. Wyjdź");
-        }
-        public void WyswietlOpcje()
-        {
-            Console.WriteLine("1. Ustaw poziom trudnosci");
-            Console.WriteLine("2. Ustaw szanse zlamania wytrycha");
-            Console.WriteLine("0. Cofnij");
-        }
-        public void WyswietlUstawieniaPoziomuTrudnosci()
-        {
-            Console.WriteLine("Wybierz poziom trudności:");
-            Console.WriteLine("1. Łatwy");
-            Console.WriteLine("2. Średni");
-            Console.WriteLine("3. Trudny");
-            Console.WriteLine("0. Cofnij");
-
-        }
-
-        public void WyswietlUstawieniaWytrycha()
-        {
-            Console.WriteLine("Ustawienia szansy złamania wytrycha");
-            Console.WriteLine("1. Mała szansa złamania wytrycha");
-            Console.WriteLine("2. Średnia szansa złamania wytrycha");
-            Console.WriteLine("3. Duża szansa złamania wytrycha");
-            Console.WriteLine("0. Cofnij");
-        }
-
-        public void WyswietlInstrukcje()
-        {
-            Console.WriteLine("INSTRUKCJA");
-            Console.WriteLine("Gra polega na otwieraniu zamków w skrzyniach.\n" +
-                "Aby rozpocząć grę wybierz 'Nowa Gra' w menu." + "\nAby przekręcić wytrych w lewo należy wpisać L i nacisnąć ENTER,\n" +
-                "aby przekręcić wytrych w prawo należy wpisać P i nacisnąć ENTER.\n" +
-                "Po przekręceniu wytrycha w złą stronę gracz zaczyna od początku sekwencji.\n" +
-                "Przy złym ruchu istnieje szansa na złamanie wytrycha.\n" +
-                "Gra kończy się gdy graczowi skończą się wytrychy, lub naciśnie '0' podczas rozgrywki.\n" +
-                "Za każdą otwartą skrzynię gracz otrzymuje punkty. Ilość przydzielonych punktów zależna jest od poziomu trudności.");
-
-            Console.WriteLine("--------------------------");
-        }
+      
 
         public void UstawPoziomLatwy()
         {

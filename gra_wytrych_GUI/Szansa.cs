@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace gra_wytrych_GUI
 {
-    public class Szansa
+    public static class Szansa
     {
-        public int Latwy = 30; //30% szansy na złamanie wytrycha przy złym ruchu
-        public int Sredni = 50;
-        public int Trudny = 80;
-        public int min = 0;
-        public int max = 0;
-        public int IloscWytrychow { get; set; }
-        public int TempIloscWytrychow; //zabezpieczenie przed naliczaniem ujemnych wytrychów
-        public int Chance { get; set; }
-        public int DlugoscSekwencji { get; set; }
+        public static int Latwy = 30; //30% szansy na złamanie wytrycha przy złym ruchu
+        public static int Sredni = 50;
+        public static int Trudny = 80;
+        public static int min = 0;
+        public static int max = 0;
+        public static int IloscWytrychow { get; set; }
+        public static int TempIloscWytrychow; //zabezpieczenie przed naliczaniem ujemnych wytrychów
+        public static int Chance { get; set; }
+        public static int DlugoscSekwencji { get; set; }
 
-        public void SetSzansaLatwy()
+        public static void SetSzansaLatwy()
         {
             Chance = Latwy;
             IloscWytrychow = 20;
@@ -27,7 +27,7 @@ namespace gra_wytrych_GUI
             min = 5;  //zakres ilości punktów jakie zostaną przydzielone po otwarciu skrzyni
             max = 20;
         }
-        public void SetSzansaSredni()
+        public static void SetSzansaSredni()
         {
             Chance = Sredni;
             IloscWytrychow = 10;
@@ -36,7 +36,7 @@ namespace gra_wytrych_GUI
             min = 15;
             max = 30;
         }
-        public void SetSzansaTrudny()
+        public static void SetSzansaTrudny()
         {
             Chance = Trudny;
             IloscWytrychow = 5;
@@ -46,15 +46,15 @@ namespace gra_wytrych_GUI
             max = 40;
         }
 
-        public void UstawMalaSzanseZlamaniaWytrycha()
+        public static void UstawMalaSzanseZlamaniaWytrycha()
         {
             Chance = Latwy;
         }
-        public void UstawSredniaSzanseZlamaniaWytrycha()
+        public static void UstawSredniaSzanseZlamaniaWytrycha()
         {
             Chance = Sredni;
         }
-        public void UstawDuzaSzanseZlamaniaWytrycha()
+        public static void UstawDuzaSzanseZlamaniaWytrycha()
         {
             Chance = Trudny;
         }
