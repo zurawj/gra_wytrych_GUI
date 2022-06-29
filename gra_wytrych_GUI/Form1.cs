@@ -26,7 +26,7 @@ namespace gra_wytrych_GUI
         public bool otwartoSkrzynie = false;
         int punkty = 0;
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnNowaGra_Click(object sender, EventArgs e)
         {
             fail = false;
             otwartoSkrzynie = false;
@@ -90,10 +90,10 @@ namespace gra_wytrych_GUI
         private int Sprawdz(Skrzynia skrzynia, char znak)
 
         {
-            if (counter < skrzynia.skrzynia.Length)
+            if (counter < skrzynia.SkrzyniaArray.Length)
             {
 
-                if ((znak == skrzynia.skrzynia[counter]) && (znak == 'L' || znak == 'P'))
+                if ((znak == skrzynia.SkrzyniaArray[counter]) && (znak == 'L' || znak == 'P'))
                 {
                     LblOutput.Text = "OK";
                     counter++;
@@ -102,9 +102,9 @@ namespace gra_wytrych_GUI
 
 
                 }
-                else if ((znak != skrzynia.skrzynia[counter]) && (znak == 'L' || znak == 'P'))
+                else if ((znak != skrzynia.SkrzyniaArray[counter]) && (znak == 'L' || znak == 'P'))
                 {
-                    if (skrzynia.zlamanieWytrycha(menu.Szansa))
+                    if (skrzynia.ZlamanieWytrycha(menu.Szansa))
                     {
                         LblOutput.Text = "Złamany wytrych! Zaczynasz od nowa.";
                         menu.IloscWytrychow--;
@@ -150,88 +150,7 @@ namespace gra_wytrych_GUI
         {
             LblOutput.Text = (menu.IloscPunktow).ToString();
         }
-        int Graj1(Skrzynia skrzynia, Menu menu)
-        {
-            const char L = 'L';
-            const char P = 'P';
-            bool fail = false;
-            bool otwartoSkrzynie = false;
-            int counter = 0;
-            while (counter < skrzynia.skrzynia.Length)
-            {
-
-                //String input = Console.ReadLine();
-                if (menu.input == 'L' && menu.input == 'P')
-                {
-                    char znak = menu.input;
-                    if ((znak == skrzynia.skrzynia[counter]) && (znak == L || znak == P))
-                    {
-
-                        counter++;
-                        menu.IloscPunktow = menu.GenerujIloscPunktow(menu.Szansa);
-
-                    }
-                    else if ((znak != skrzynia.skrzynia[counter]) && (znak == L || znak == P))
-                    {
-                        if (skrzynia.zlamanieWytrycha(menu.Szansa))
-                        {
-                            Console.WriteLine("Zlamany wytrych! Zaczynasz od nowa.");
-                            menu.IloscWytrychow--;
-                            counter = 0;
-                            if (menu.IloscWytrychow == 0)
-                            {
-                                Console.WriteLine("Nie masz więcej wytrychów! Koniec Gry!");
-                                menu.IloscPunktow = 0;
-                                fail = true;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Zły ruch! Zaczynasz od nowa.");
-                            counter = 0;
-                        }
-
-                    }
-
-                    else if (znak == '0')
-                    {
-                        fail = true;
-
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Nieznana komenda!");
-                        menu.SleepAndClearConsole();
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Nieznana komenda!");
-                    menu.SleepAndClearConsole();
-
-                }
-
-
-            }
-            if (fail)
-            {
-                Console.Clear();
-                Console.WriteLine("Koniec gry! Zdobywasz " + menu.IloscPunktow + " punktów!");
-                return menu.IloscPunktow;
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Otwarto skrzynię! Zdobywasz " + menu.IloscPunktow + " punktów!");
-                otwartoSkrzynie = true;
-                return menu.IloscPunktow;
-
-            }
-
-        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

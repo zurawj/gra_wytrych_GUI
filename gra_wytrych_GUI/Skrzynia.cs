@@ -8,42 +8,37 @@ namespace gra_wytrych_GUI
 {
     public class Skrzynia
     {
-        public char[] skrzynia { get; set; }
-        Random rnd = new Random();
+        private const char L = 'L';
+        private const char P = 'P';
+        private const int Min = 0;
+        private const int Max = 99;
+        public char[] SkrzyniaArray { get; set; }
+        private Random Rnd = new Random();
 
         public Skrzynia(int dlugosc)
         {
-            this.skrzynia = new char[dlugosc];
+            this.SkrzyniaArray = new char[dlugosc];
         }
         public void GenerowanieSekwencji(int dlugosc)
         {
 
             for (int i = 0; i < dlugosc; i++)
             {
-                int los = rnd.Next(0, 2);
-                if (los > 0)
+                if (Rnd.Next(0, 2) > 0)
                 {
-                    this.skrzynia[i] = 'L';
+                    this.SkrzyniaArray[i] = L;
                 }
-                else this.skrzynia[i] = 'P';
+                else this.SkrzyniaArray[i] = P;
             }
         }
-
-
-        public bool zlamanieWytrycha(int szansa)
+        public bool ZlamanieWytrycha(int szansa)
         {
-
-            int los = rnd.Next(0, 99);
-            if (los > szansa)
-            {
-                return false;
-            }
-            else return true;
-
-
-
+            return Rnd.Next(Min, Max) <= szansa;
         }
-
     }
+
+
+
+    
 }
 

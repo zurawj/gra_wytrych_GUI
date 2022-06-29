@@ -17,23 +17,23 @@ namespace gra_wytrych_GUI
             fail = false;
             otwartoSkrzynie = false;
             int counter = 0;
-            while (counter < skrzynia.skrzynia.Length)
+            while (counter < skrzynia.SkrzyniaArray.Length)
             {
 
                 //String input = Console.ReadLine();
                 if (menu.input == 'L' && menu.input == 'P')
                 {
                     char znak = menu.input;
-                    if ((znak == skrzynia.skrzynia[counter]) && (znak == L || znak == P))
+                    if ((znak == skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
                     {
 
                         counter++;
                         menu.IloscPunktow = menu.GenerujIloscPunktow(menu.Szansa);
 
                     }
-                    else if ((znak != skrzynia.skrzynia[counter]) && (znak == L || znak == P))
+                    else if ((znak != skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
                     {
-                        if (skrzynia.zlamanieWytrycha(menu.Szansa))
+                        if (skrzynia.ZlamanieWytrycha(menu.Szansa))
                         {
                             Console.WriteLine("Zlamany wytrych! Zaczynasz od nowa.");
                             menu.IloscWytrychow--;
