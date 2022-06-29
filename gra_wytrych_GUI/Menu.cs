@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace gra_wytrych_GUI
 {
-    internal class Menu
+    public class Menu
     {
-        public int IloscWytrychow { get; set; }
-        public int Szansa { get; set; }
-        public int DlugoscSekwencji { get; set; }
-
         public int IloscSkrzyni { get; set; }
 
         public int IloscPunktow { get; set; }
@@ -26,14 +22,13 @@ namespace gra_wytrych_GUI
         private Random rnd = new Random();
         public Menu()
         {   //domyslny poziom latwy
-            IloscWytrychow = 10;
-            DlugoscSekwencji = 4;
-            Szansa = 20;
+           // Szansa.SetSzansaLatwy();
         }
-      
+        
 
         public void UstawPoziomLatwy()
         {
+           // Szansa.SetSzansaLatwy();
             UstawPoziom(20, 4, SzansaLatwy);
         }
         public void UstawPoziomSredni()
@@ -50,28 +45,9 @@ namespace gra_wytrych_GUI
             this.DlugoscSekwencji = DlugoscSekwencji;
             this.Szansa = Szansa;
         }
-        public int GenerujIloscPunktow(int szansa)
-        {
 
-            if (szansa == SzansaLatwy)
-            {
-                int los = rnd.Next(5, 20); //przydziela od 5 do 20 punktów
-                return los;
-            }
-            else if (szansa == SzansaSredni)
-            {
-                int los = rnd.Next(15, 30);
-                return los;
-            }
-            else if (szansa == SzansaTrudny)
-            {
-                int los = rnd.Next(25, 40);
-                return los;
-            }
-            else return 0;
+       
 
-
-        }
 
         public void SleepAndClearConsole()
         {

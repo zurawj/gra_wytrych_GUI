@@ -21,16 +21,17 @@ namespace gra_wytrych_GUI
 
         int counter = 0;
         char znak;
-        Skrzynia skrzynia = new Skrzynia(4);
+        Skrzynia skrzynia = new Skrzynia(Szansa.DlugoscSekwencji);
         bool fail = false;
         public bool otwartoSkrzynie = false;
         int punkty = 0;
 
         private void BtnNowaGra_Click(object sender, EventArgs e)
         {
+           
             fail = false;
             otwartoSkrzynie = false;
-            skrzynia.GenerowanieSekwencji(4);
+            skrzynia.GenerowanieSekwencji(Szansa.DlugoscSekwencji);
             LblOutput.Text = "Otwórz skrzynię!";
             Resetuj();
             BtnLewo.Show();
@@ -40,9 +41,9 @@ namespace gra_wytrych_GUI
 
         private void BtnLewo_Click(object sender, EventArgs e)
         {
-            if (menu.IloscWytrychow > 0)
+            if (Szansa.IloscWytrychow > 0)
             {
-                znak = 'L';
+                znak = 'L';  // zmienic na const
                 Sprawdz(skrzynia, znak);
                 if (otwartoSkrzynie)
                 {
@@ -56,7 +57,7 @@ namespace gra_wytrych_GUI
         }
         private void BtnPrawo_Click(object sender, EventArgs e)
         {
-            if (menu.IloscWytrychow > 0)
+            if (Szansa.IloscWytrychow > 0)
             {
                 znak = 'P';
                 Sprawdz(skrzynia, znak);
@@ -82,10 +83,10 @@ namespace gra_wytrych_GUI
             punkty = 0;
             menu.IloscPunktow = 0;
             menu.IloscSkrzyni = 0;
-            menu.IloscWytrychow = 10;
+            Szansa.IloscWytrychow = 10;
             LblPunkty.Text = punkty.ToString();
             LblLiczbaSkrzyni.Text = (menu.IloscSkrzyni).ToString();
-            LblLiczbaWytrychow.Text = (menu.IloscWytrychow).ToString();
+            LblLiczbaWytrychow.Text = (Szansa.IloscWytrychow).ToString();
         }
         private int Sprawdz(Skrzynia skrzynia, char znak)
 
@@ -98,7 +99,7 @@ namespace gra_wytrych_GUI
                     LblOutput.Text = "OK";
                     counter++;
 
-                    return menu.IloscPunktow = menu.GenerujIloscPunktow(menu.Szansa);
+                    return menu.IloscPunktow = skrzynia.GenerujIloscPunktow();
 
 
                 }
@@ -107,11 +108,11 @@ namespace gra_wytrych_GUI
                     if (skrzynia.ZlamanieWytrycha(menu.Szansa))
                     {
                         LblOutput.Text = "Złamany wytrych! Zaczynasz od nowa.";
-                        menu.IloscWytrychow--;
-                        LblLiczbaWytrychow.Text = (menu.IloscWytrychow).ToString();
+                        Szansa.IloscWytrychow--;
+                        LblLiczbaWytrychow.Text = (Szansa.IloscWytrychow).ToString();
                         counter = 0;
 
-                        if (menu.IloscWytrychow == 0)
+                        if (Szansa.IloscWytrychow == 0)
                         {
                             LblOutput.Text = "Nie masz więcej wytrychów! Koniec Gry!";
                             menu.IloscPunktow = 0;
@@ -123,13 +124,13 @@ namespace gra_wytrych_GUI
                     {
                         LblOutput.Text = "Zły ruch! Zaczynasz od nowa.";
                         counter = 0;
-                        return menu.IloscPunktow = menu.GenerujIloscPunktow(menu.Szansa);
+                        return menu.IloscPunktow = skrzynia.GenerujIloscPunktow();
                     }
 
                 }
-                return menu.IloscPunktow = menu.GenerujIloscPunktow(menu.Szansa);
+                return menu.IloscPunktow = skrzynia.GenerujIloscPunktow();
             }
-            if (menu.IloscWytrychow == 0)
+            if (Szansa.IloscWytrychow == 0)
             {
 
                 LblOutput.Text = "Koniec gry! Zdobywasz " + menu.IloscPunktow + " punktów!";

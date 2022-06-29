@@ -21,7 +21,7 @@ namespace gra_wytrych_GUI
         }
         public void GenerowanieSekwencji(int dlugosc)
         {
-
+            
             for (int i = 0; i < dlugosc; i++)
             {
                 if (Rnd.Next(0, 2) > 0)
@@ -34,6 +34,16 @@ namespace gra_wytrych_GUI
         public bool ZlamanieWytrycha(int szansa)
         {
             return Rnd.Next(Min, Max) <= szansa;
+        }
+        public int GenerujIloscPunktow()
+        {
+            if (Szansa.min != Szansa.max)
+            {
+                return Rnd.Next(Szansa.min, Szansa.max);
+            }
+            else return 0;
+
+
         }
     }
 

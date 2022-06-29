@@ -28,7 +28,7 @@ namespace gra_wytrych_GUI
                     {
 
                         counter++;
-                        menu.IloscPunktow = menu.GenerujIloscPunktow(menu.Szansa);
+                        menu.IloscPunktow = skrzynia.GenerujIloscPunktow();
 
                     }
                     else if ((znak != skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
@@ -36,9 +36,9 @@ namespace gra_wytrych_GUI
                         if (skrzynia.ZlamanieWytrycha(menu.Szansa))
                         {
                             Console.WriteLine("Zlamany wytrych! Zaczynasz od nowa.");
-                            menu.IloscWytrychow--;
+                            Szansa.IloscWytrychow--;
                             counter = 0;
-                            if (menu.IloscWytrychow == 0)
+                            if (Szansa.IloscWytrychow == 0)
                             {
                                 Console.WriteLine("Nie masz więcej wytrychów! Koniec Gry!");
                                 menu.IloscPunktow = 0;
@@ -88,7 +88,7 @@ namespace gra_wytrych_GUI
                 Console.WriteLine("Otwarto skrzynię! Zdobywasz " + menu.IloscPunktow + " punktów!");
                 otwartoSkrzynie = true;
                 return menu.IloscPunktow;
-
+                
             }
 
         }
