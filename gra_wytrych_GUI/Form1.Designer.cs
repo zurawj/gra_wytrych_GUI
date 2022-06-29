@@ -39,7 +39,7 @@ namespace gra_wytrych_GUI
             this.LblLiczbaWytrychowInfo = new System.Windows.Forms.Label();
             this.LblLiczbaWytrychow = new System.Windows.Forms.Label();
             this.LblOutput = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnOpcje = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnNowaGra
@@ -60,6 +60,7 @@ namespace gra_wytrych_GUI
             this.BtnLewo.TabIndex = 1;
             this.BtnLewo.Text = "Lewo";
             this.BtnLewo.UseVisualStyleBackColor = true;
+            this.BtnLewo.Visible = false;
             this.BtnLewo.Click += new System.EventHandler(this.BtnLewo_Click);
             // 
             // BtnPrawo
@@ -70,6 +71,7 @@ namespace gra_wytrych_GUI
             this.BtnPrawo.TabIndex = 2;
             this.BtnPrawo.Text = "Prawo";
             this.BtnPrawo.UseVisualStyleBackColor = true;
+            this.BtnPrawo.Visible = false;
             this.BtnPrawo.Click += new System.EventHandler(this.BtnPrawo_Click);
             // 
             // LblLiczbaSkrzyniInfo
@@ -134,22 +136,22 @@ namespace gra_wytrych_GUI
             this.LblOutput.TabIndex = 9;
             this.LblOutput.Text = "Output";
             // 
-            // button1
+            // BtnOpcje
             // 
-            this.button1.Location = new System.Drawing.Point(378, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnOpcje.Location = new System.Drawing.Point(100, 391);
+            this.BtnOpcje.Name = "BtnOpcje";
+            this.BtnOpcje.Size = new System.Drawing.Size(75, 23);
+            this.BtnOpcje.TabIndex = 10;
+            this.BtnOpcje.Text = "Opcje";
+            this.BtnOpcje.UseVisualStyleBackColor = true;
+            this.BtnOpcje.Click += new System.EventHandler(this.BtnOpcje_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnOpcje);
             this.Controls.Add(this.LblOutput);
             this.Controls.Add(this.LblLiczbaWytrychow);
             this.Controls.Add(this.LblLiczbaWytrychowInfo);
@@ -179,7 +181,7 @@ namespace gra_wytrych_GUI
         private System.Windows.Forms.Label LblLiczbaWytrychowInfo;
         private System.Windows.Forms.Label LblLiczbaWytrychow;
         private System.Windows.Forms.Label LblOutput;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnOpcje;
     }
 }
 

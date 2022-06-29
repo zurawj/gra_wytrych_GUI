@@ -22,14 +22,12 @@ namespace gra_wytrych_GUI
         int counter = 0;
         char znak;
         Skrzynia skrzynia = new Skrzynia();
-        bool fail = false;
         public bool otwartoSkrzynie = false;
         int punkty = 0;
 
         private void BtnNowaGra_Click(object sender, EventArgs e)
         {
-            Szansa.SetSzansaLatwy();
-            fail = false;
+            
             otwartoSkrzynie = false;
             skrzynia.GenerowanieSekwencji(Szansa.DlugoscSekwencji);
             LblOutput.Text = "Otwórz skrzynię!";
@@ -116,7 +114,7 @@ namespace gra_wytrych_GUI
                         {
                             LblOutput.Text = "Nie masz więcej wytrychów! Koniec Gry!";
                             Szansa.IloscPunktow = 0;
-                            fail = true;
+                            //fail = true;
                             return Szansa.IloscPunktow;
                         }
                     }
@@ -168,15 +166,10 @@ namespace gra_wytrych_GUI
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void BtnOpcje_Click(object sender, EventArgs e)
         {
-            //Opcje opcje = new Opcje();
-            //opcje.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Szansa.SetSzansaTrudny();
+            Opcje opcje = new Opcje();
+            opcje.Show();
         }
     }
 }

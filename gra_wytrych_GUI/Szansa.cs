@@ -15,7 +15,7 @@ namespace gra_wytrych_GUI
         public static int max = 0;
         public static int IloscWytrychow { get; set; }
         public static int TempIloscWytrychow; //zabezpieczenie przed naliczaniem ujemnych wytrychów
-        public static int Chance { get; set; }
+        public static int Chance = 30;
         public static int DlugoscSekwencji = 4; // domyślny poziom łatwy
         public static int IloscPunktow;
         public static int IloscSkrzyni;
