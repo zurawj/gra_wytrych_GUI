@@ -11,8 +11,8 @@ namespace gra_wytrych_GUI
         public static int Latwy = 30; //30% szansy na złamanie wytrycha przy złym ruchu
         public static int Sredni = 50;
         public static int Trudny = 80;
-        public static int min = 0;
-        public static int max = 0;
+        public static int min = 5;
+        public static int max = 20;
         public static int IloscWytrychow { get; set; }
         public static int TempIloscWytrychow; //zabezpieczenie przed naliczaniem ujemnych wytrychów
         public static int Chance = 30;

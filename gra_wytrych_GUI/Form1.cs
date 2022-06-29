@@ -11,8 +11,10 @@ using System.Windows.Forms;
 namespace gra_wytrych_GUI
 {
     public partial class Form1 : Form
-    {
-       
+    {   
+        private const char L = 'L';
+        private const char P = 'P';
+        Opcje opcje = new Opcje();
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace gra_wytrych_GUI
 
         private void BtnNowaGra_Click(object sender, EventArgs e)
         {
-            
+            opcje.CheckLevel();
             otwartoSkrzynie = false;
             skrzynia.GenerowanieSekwencji(Szansa.DlugoscSekwencji);
             LblOutput.Text = "Otwórz skrzynię!";
@@ -41,14 +43,14 @@ namespace gra_wytrych_GUI
         {
             if (Szansa.IloscWytrychow > 0)
             {
-                znak = 'L';  // zmienic na const
+                znak = L;  
                 Sprawdz(skrzynia, znak);
                 if (otwartoSkrzynie)
                 {
                     OtwartoSkrzynie();
                 }
             }
-            else LblOutput.Text = "Brak wytrychów! Wciśnij 'Nowa Gra' aby zacząć zagrać jeszcze raz!";
+            else LblOutput.Text = "Brak wytrychów!\nWciśnij 'Nowa Gra' aby zagrać jeszcze raz!";
 
 
 
@@ -57,14 +59,14 @@ namespace gra_wytrych_GUI
         {
             if (Szansa.IloscWytrychow > 0)
             {
-                znak = 'P';
+                znak = P;
                 Sprawdz(skrzynia, znak);
                 if (otwartoSkrzynie)
                 {
                     OtwartoSkrzynie();
                 }
             }
-            else LblOutput.Text = "Brak wytrychów! Wciśnij 'Nowa Gra' aby zacząć zagrać jeszcze raz!";
+            else LblOutput.Text = "Brak wytrychów!\nWciśnij 'Nowa Gra' aby zagrać jeszcze raz!";
 
         }
         private void OtwartoSkrzynie()
@@ -81,7 +83,7 @@ namespace gra_wytrych_GUI
             punkty = 0;
             Szansa.IloscPunktow = 0;
             Szansa.IloscSkrzyni = 0;
-            Szansa.IloscWytrychow = 10;///harcoded
+            Szansa.IloscWytrychow = Szansa.TempIloscWytrychow;
             LblPunkty.Text = punkty.ToString();
             LblLiczbaSkrzyni.Text = (Szansa.IloscSkrzyni).ToString();
             LblLiczbaWytrychow.Text = (Szansa.IloscWytrychow).ToString();
@@ -92,7 +94,7 @@ namespace gra_wytrych_GUI
             if (counter < skrzynia.SkrzyniaArray.Length)
             {
 
-                if ((znak == skrzynia.SkrzyniaArray[counter]) && (znak == 'L' || znak == 'P'))
+                if ((znak == skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
                 {
                     LblOutput.Text = "OK";
                     counter++;
@@ -101,7 +103,7 @@ namespace gra_wytrych_GUI
 
 
                 }
-                else if ((znak != skrzynia.SkrzyniaArray[counter]) && (znak == 'L' || znak == 'P'))
+                else if ((znak != skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
                 {
                     if (skrzynia.ZlamanieWytrycha(Szansa.Chance))
                     {
@@ -168,8 +170,10 @@ namespace gra_wytrych_GUI
 
         private void BtnOpcje_Click(object sender, EventArgs e)
         {
-            Opcje opcje = new Opcje();
+          
             opcje.Show();
+            opcje.CheckLevel();
+            Resetuj();
         }
     }
 }

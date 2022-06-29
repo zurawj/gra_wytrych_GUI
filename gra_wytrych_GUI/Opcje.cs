@@ -27,9 +27,32 @@ namespace gra_wytrych_GUI
             Szansa.SetSzansaSredni();
         }
 
-        private void TbtnTrudny_CheckedChanged(object sender, EventArgs e)
+        private void RbtnTrudny_CheckedChanged(object sender, EventArgs e)
         {
             Szansa.SetSzansaTrudny();
+        }
+
+        public void CheckLevel()
+        {
+            if (RbtnTrudny.Checked == true)
+            {
+                Szansa.SetSzansaTrudny();
+            }
+            else if(RbtnSredni.Checked == true)
+            {
+                Szansa.SetSzansaSredni();
+            }
+            else
+            {
+                Szansa.SetSzansaLatwy();
+            }
+
+            
+        }
+
+        private void BtnZapisz_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

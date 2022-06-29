@@ -44,7 +44,7 @@ namespace gra_wytrych_GUI
             // 
             // BtnNowaGra
             // 
-            this.BtnNowaGra.Location = new System.Drawing.Point(100, 361);
+            this.BtnNowaGra.Location = new System.Drawing.Point(102, 289);
             this.BtnNowaGra.Name = "BtnNowaGra";
             this.BtnNowaGra.Size = new System.Drawing.Size(75, 23);
             this.BtnNowaGra.TabIndex = 0;
@@ -54,9 +54,9 @@ namespace gra_wytrych_GUI
             // 
             // BtnLewo
             // 
-            this.BtnLewo.Location = new System.Drawing.Point(27, 276);
+            this.BtnLewo.Location = new System.Drawing.Point(30, 212);
             this.BtnLewo.Name = "BtnLewo";
-            this.BtnLewo.Size = new System.Drawing.Size(95, 39);
+            this.BtnLewo.Size = new System.Drawing.Size(110, 51);
             this.BtnLewo.TabIndex = 1;
             this.BtnLewo.Text = "Lewo";
             this.BtnLewo.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@ namespace gra_wytrych_GUI
             // 
             // BtnPrawo
             // 
-            this.BtnPrawo.Location = new System.Drawing.Point(158, 276);
+            this.BtnPrawo.Location = new System.Drawing.Point(146, 212);
             this.BtnPrawo.Name = "BtnPrawo";
-            this.BtnPrawo.Size = new System.Drawing.Size(99, 39);
+            this.BtnPrawo.Size = new System.Drawing.Size(108, 51);
             this.BtnPrawo.TabIndex = 2;
             this.BtnPrawo.Text = "Prawo";
             this.BtnPrawo.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@ namespace gra_wytrych_GUI
             // LblOutput
             // 
             this.LblOutput.AutoSize = true;
-            this.LblOutput.Location = new System.Drawing.Point(27, 174);
+            this.LblOutput.Location = new System.Drawing.Point(27, 152);
             this.LblOutput.Name = "LblOutput";
             this.LblOutput.Size = new System.Drawing.Size(39, 13);
             this.LblOutput.TabIndex = 9;
@@ -138,7 +138,7 @@ namespace gra_wytrych_GUI
             // 
             // BtnOpcje
             // 
-            this.BtnOpcje.Location = new System.Drawing.Point(100, 391);
+            this.BtnOpcje.Location = new System.Drawing.Point(102, 318);
             this.BtnOpcje.Name = "BtnOpcje";
             this.BtnOpcje.Size = new System.Drawing.Size(75, 23);
             this.BtnOpcje.TabIndex = 10;
@@ -148,9 +148,8 @@ namespace gra_wytrych_GUI
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(291, 365);
             this.Controls.Add(this.BtnOpcje);
             this.Controls.Add(this.LblOutput);
             this.Controls.Add(this.LblLiczbaWytrychow);
@@ -162,8 +161,11 @@ namespace gra_wytrych_GUI
             this.Controls.Add(this.BtnPrawo);
             this.Controls.Add(this.BtnLewo);
             this.Controls.Add(this.BtnNowaGra);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = " ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gra - Otwórz Skrzynię";
             this.ResumeLayout(false);
             this.PerformLayout();
 
