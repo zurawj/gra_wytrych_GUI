@@ -77,7 +77,7 @@ namespace gra_wytrych_GUI
             // LblLiczbaSkrzyniInfo
             // 
             this.LblLiczbaSkrzyniInfo.AutoSize = true;
-            this.LblLiczbaSkrzyniInfo.Location = new System.Drawing.Point(24, 31);
+            this.LblLiczbaSkrzyniInfo.Location = new System.Drawing.Point(27, 31);
             this.LblLiczbaSkrzyniInfo.Name = "LblLiczbaSkrzyniInfo";
             this.LblLiczbaSkrzyniInfo.Size = new System.Drawing.Size(125, 13);
             this.LblLiczbaSkrzyniInfo.TabIndex = 3;
