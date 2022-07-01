@@ -13,13 +13,13 @@ namespace gra_wytrych_GUI
         public static int Trudny = 80;
         public static int min = 5;
         public static int max = 20;
-        public static int IloscWytrychow { get; set; }
+        public static int IloscWytrychow = 15;
         public static int TempIloscWytrychow; //zabezpieczenie przed naliczaniem ujemnych wytrychów
         public static int Chance = 30;
         public static int DlugoscSekwencji = 4; // domyślny poziom łatwy
         public static int IloscPunktow;
         public static int IloscSkrzyni;
-
+        
         public static void SetSzansaLatwy()
         {
             Chance = Latwy;
@@ -46,19 +46,6 @@ namespace gra_wytrych_GUI
             DlugoscSekwencji = 10;
             min = 25;
             max = 40;
-        }
-
-        public static void UstawMalaSzanseZlamaniaWytrycha()
-        {
-            Chance = Latwy;
-        }
-        public static void UstawSredniaSzanseZlamaniaWytrycha()
-        {
-            Chance = Sredni;
-        }
-        public static void UstawDuzaSzanseZlamaniaWytrycha()
-        {
-            Chance = Trudny;
         }
    
     }

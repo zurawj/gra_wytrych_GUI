@@ -17,7 +17,7 @@ namespace gra_wytrych_GUI
 
         public Skrzynia()
         {
-            //this.SkrzyniaArray = new char[dlugosc];
+            Szansa.SetSzansaLatwy();
         }
         public void GenerowanieSekwencji(int dlugosc)
         {

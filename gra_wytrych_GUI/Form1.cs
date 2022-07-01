@@ -14,7 +14,7 @@ namespace gra_wytrych_GUI
     {   
         private const char L = 'L';
         private const char P = 'P';
-        Opcje opcje = new Opcje();
+        
         public Form1()
         {
             InitializeComponent();
@@ -29,13 +29,22 @@ namespace gra_wytrych_GUI
 
         private void BtnNowaGra_Click(object sender, EventArgs e)
         {
-            opcje.CheckLevel();
+           
             otwartoSkrzynie = false;
             skrzynia.GenerowanieSekwencji(Szansa.DlugoscSekwencji);
-            LblOutput.Text = "Otwórz skrzynię!";
             Resetuj();
+            ShowButtons();
+
+        }
+
+        private void ShowButtons()
+        {
             BtnLewo.Show();
             BtnPrawo.Show();
+            LblLiczbaWytrychow.Show();
+            LblLiczbaSkrzyni.Show();
+            LblPunkty.Show();
+            LblOutput.Show();
 
         }
 
@@ -76,34 +85,47 @@ namespace gra_wytrych_GUI
             LblPunkty.Text = punkty.ToString();
             LblLiczbaSkrzyni.Text = (Szansa.IloscSkrzyni).ToString();
             otwartoSkrzynie = false;
-            skrzynia.GenerowanieSekwencji(4);
+            skrzynia.GenerowanieSekwencji(Szansa.DlugoscSekwencji);
         }
-        private void Resetuj()
+
+        public void Resetuj()
         {
+
             punkty = 0;
             Szansa.IloscPunktow = 0;
             Szansa.IloscSkrzyni = 0;
             Szansa.IloscWytrychow = Szansa.TempIloscWytrychow;
             LblPunkty.Text = punkty.ToString();
             LblLiczbaSkrzyni.Text = (Szansa.IloscSkrzyni).ToString();
-            LblLiczbaWytrychow.Text = (Szansa.IloscWytrychow).ToString();
+            LblLiczbaWytrychow.Text = (Szansa.TempIloscWytrychow).ToString();
+            LblOutput.Text = "Otwórz skrzynię!";
         }
-        private int Sprawdz(Skrzynia skrzynia, char znak)
-
+        private void HideButtons()
         {
+            BtnLewo.Hide();
+            BtnPrawo.Hide();
+            LblLiczbaWytrychow.Hide();
+            LblLiczbaSkrzyni.Hide();
+            LblOutput.Hide();
+            LblPunkty.Hide();
+        }
+
+        private int Sprawdz(Skrzynia skrzynia, char znak)
+        {
+           // LblLiczbaWytrychow.Text = (Szansa.IloscWytrychow).ToString();
             if (counter < skrzynia.SkrzyniaArray.Length)
             {
-
-                if ((znak == skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
+                char znakZeSkrzyni = skrzynia.SkrzyniaArray[counter];
+                if ((znak == znakZeSkrzyni) && (znak == L || znak == P))
                 {
                     LblOutput.Text = "OK";
                     counter++;
 
-                    return Szansa.IloscPunktow = skrzynia.GenerujIloscPunktow();
+                    Szansa.IloscPunktow = skrzynia.GenerujIloscPunktow();
 
 
                 }
-                else if ((znak != skrzynia.SkrzyniaArray[counter]) && (znak == L || znak == P))
+                else if ((znak != znakZeSkrzyni) && (znak == L || znak == P))
                 {
                     if (skrzynia.ZlamanieWytrycha(Szansa.Chance))
                     {
@@ -116,7 +138,6 @@ namespace gra_wytrych_GUI
                         {
                             LblOutput.Text = "Nie masz więcej wytrychów! Koniec Gry!";
                             Szansa.IloscPunktow = 0;
-                            //fail = true;
                             return Szansa.IloscPunktow;
                         }
                     }
@@ -124,7 +145,7 @@ namespace gra_wytrych_GUI
                     {
                         LblOutput.Text = "Zły ruch! Zaczynasz od nowa.";
                         counter = 0;
-                        return Szansa.IloscPunktow = skrzynia.GenerujIloscPunktow();
+                        Szansa.IloscPunktow = skrzynia.GenerujIloscPunktow();
                     }
 
                 }
@@ -147,33 +168,12 @@ namespace gra_wytrych_GUI
 
 
 
-        private void WyswietlPunkty()
-        {
-            LblOutput.Text = (Szansa.IloscPunktow).ToString();
-        }
-        
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void BtnOpcje_Click(object sender, EventArgs e)
         {
-          
+            Opcje opcje = new Opcje();
             opcje.Show();
-            opcje.CheckLevel();
-            Resetuj();
+            HideButtons();
         }
     }
 }

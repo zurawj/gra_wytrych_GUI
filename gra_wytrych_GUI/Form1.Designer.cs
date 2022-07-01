@@ -109,6 +109,7 @@ namespace gra_wytrych_GUI
             this.LblPunkty.Size = new System.Drawing.Size(13, 13);
             this.LblPunkty.TabIndex = 6;
             this.LblPunkty.Text = "0";
+            this.LblPunkty.Visible = false;
             // 
             // LblLiczbaWytrychowInfo
             // 
@@ -135,6 +136,7 @@ namespace gra_wytrych_GUI
             this.LblOutput.Size = new System.Drawing.Size(39, 13);
             this.LblOutput.TabIndex = 9;
             this.LblOutput.Text = "Output";
+            this.LblOutput.Visible = false;
             // 
             // BtnOpcje
             // 

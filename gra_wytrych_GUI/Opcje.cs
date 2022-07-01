@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace gra_wytrych_GUI
 {
     public partial class Opcje : Form
-    {
+    {  
         public Opcje()
         {
             InitializeComponent();
@@ -40,18 +40,19 @@ namespace gra_wytrych_GUI
             }
             else if(RbtnSredni.Checked == true)
             {
-                Szansa.SetSzansaSredni();
+                Szansa.SetSzansaSredni(); 
             }
             else
             {
                 Szansa.SetSzansaLatwy();
             }
-
             
         }
 
+
         private void BtnZapisz_Click(object sender, EventArgs e)
         {
+            CheckLevel();
             Close();
         }
     }
